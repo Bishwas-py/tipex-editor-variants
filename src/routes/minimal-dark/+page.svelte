@@ -1,7 +1,6 @@
 <script lang="ts">
     import { Tipex, type TipexEditor } from '@friendofsvelte/tipex';
-    import "@friendofsvelte/tipex/styles/theme.css"; // we only used the theme.css file for the editor
-    import "@friendofsvelte/tipex/styles/prosemirror.css"; // only need this for now
+    import "@friendofsvelte/tipex/styles/index.css";
     import "./resources/minimal-dark.css";
     
     let body = `<h1>Minimal Dark Editor</h1>
