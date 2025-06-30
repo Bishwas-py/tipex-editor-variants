@@ -93,11 +93,10 @@
     transform: translateY(-1px);
   }
   
-  .editor-main {
-    @apply flex-1 p-6;
-    background: var(--color-minimal-bg);
+  .editor-main-dark {
+    @apply flex-1 p-6 bg-minimal-bg;
   }
-  
+
   .minimal-dark-editor {
     @apply max-w-4xl mx-auto h-full;
     background: var(--color-minimal-surface);
@@ -194,7 +193,7 @@
   }
   
   .utility-btn {
-    @apply p-2 rounded-md transition-all duration-200 border;
+    @apply h-8 w-8 flex items-center justify-center rounded-md transition-all duration-200 border;
     background: transparent;
     color: var(--color-minimal-text-muted);
     border-color: var(--color-minimal-border);

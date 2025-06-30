@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Tipex, type TipexEditor } from '@friendofsvelte/tipex';
-    import "@friendofsvelte/tipex/styles/index.css";
+    import "@friendofsvelte/tipex/styles/theme.css";
+    import "@friendofsvelte/tipex/styles/prosemirror.css";
     import "./resources/minimal-dark.css";
     
     let body = `<h1>Minimal Dark Editor</h1>
@@ -43,7 +44,7 @@
         </div>
     </header>
     
-    <main class="editor-main">
+    <main class="editor-main-dark">
         <Tipex 
             bind:tipex={editor}
             {body} 
@@ -51,12 +52,15 @@
             focal
             class="minimal-dark-editor"
         >
-            {#snippet utilities(tipex)}
+            {#snippet controlComponent(tipex)}
+                {#if tipex}
+                <div class="bg-minimal-surface border-t border-minimal-border py-2 px-3 flex items-center gap-2">
                 <button 
                     class="utility-btn"
                     onclick={() => tipex.commands.toggleBold()}
                     class:active={tipex.isActive('bold')}
                     title="Bold (Ctrl+B)"
+                    aria-label="Bold"
                 >
                     <iconify-icon icon="fa6-solid:bold"></iconify-icon>
                 </button>
@@ -66,6 +70,7 @@
                     onclick={() => tipex.commands.toggleItalic()}
                     class:active={tipex.isActive('italic')}
                     title="Italic (Ctrl+I)"
+                    aria-label="Italic"
                 >
                     <iconify-icon icon="fa6-solid:italic"></iconify-icon>
                 </button>
@@ -75,9 +80,12 @@
                     onclick={() => tipex.commands.toggleCode()}
                     class:active={tipex.isActive('code')}
                     title="Inline Code"
+                    aria-label="Inline Code"
                 >
                     <iconify-icon icon="fa6-solid:code"></iconify-icon>
                 </button>
+                </div>
+                {/if}
             {/snippet}
         </Tipex>
     </main>
