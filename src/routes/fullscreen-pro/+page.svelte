@@ -187,30 +187,40 @@
             </div>
             
             <div class="action-buttons">
-                <button class="action-btn" onclick={handleSave} title="Save (Ctrl+S)">
+                <button class="action-btn" onclick={handleSave} title="Save (Ctrl+S)" aria-label="Save">
                     <iconify-icon icon="fa6-solid:floppy-disk"></iconify-icon>
                 </button>
-                
-                <button class="action-btn" onclick={handleExport} title="Export">
-                    <iconify-icon icon="fa6-solid:download"></iconify-icon>
-                </button>
-                
-                <button class="action-btn" onclick={toggleFocusMode} title="Focus Mode">
+
+				<button
+					class="action-btn"
+					onclick={handleExport}
+					title="Export"
+					aria-label="Export"
+				>
+					<iconify-icon icon="fa6-solid:download"></iconify-icon>
+				</button>
+
+                <button class="action-btn" onclick={toggleFocusMode} title="Focus Mode" aria-label="Focus Mode">
                     <iconify-icon icon="fa6-solid:eye"></iconify-icon>
                 </button>
                 
-                <button class="action-btn" onclick={toggleFullscreen} title="Fullscreen (F11)">
+                <button class="action-btn" onclick={toggleFullscreen} title="Fullscreen (F11)" aria-label="Fullscreen">
                     <iconify-icon icon="fa6-solid:expand"></iconify-icon>
                 </button>
                 
-                <button class="action-btn" onclick={() => showShortcuts = !showShortcuts} title="Shortcuts (Ctrl+/)">
+                <button class="action-btn" onclick={() => showShortcuts = !showShortcuts} title="Shortcuts (Ctrl+/)" aria-label="Shortcuts">
                     <iconify-icon icon="fa6-solid:keyboard"></iconify-icon>
                 </button>
-                
-                <a href="/" class="action-btn home-btn" title="Home">
-                    <iconify-icon icon="fa-solid:home"></iconify-icon>
-                </a>
-            </div>
+
+				<a
+					href="/"
+					class="action-btn home-btn"
+					title="Home"
+					aria-label="Home"
+				>
+					<iconify-icon icon="fa-solid:home"></iconify-icon>
+				</a>
+			</div>
         </div>
     </div>
     
@@ -232,8 +242,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleBold?.()}
                             class:active={tipex?.isActive?.('bold')}
                             title="Bold (Ctrl+B)"
-                        >
-                            <iconify-icon icon="fa6-solid:bold"></iconify-icon>
+							aria-label="Bold"
+						>
+							<iconify-icon icon="fa6-solid:bold"></iconify-icon>
                         </button>
                         
                         <button 
@@ -241,8 +252,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleItalic?.()}
                             class:active={tipex?.isActive?.('italic')}
                             title="Italic (Ctrl+I)"
-                        >
-                            <iconify-icon icon="fa6-solid:italic"></iconify-icon>
+							aria-label="Italic"
+						>
+							<iconify-icon icon="fa6-solid:italic"></iconify-icon>
                         </button>
                         
                         <button 
@@ -250,8 +262,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleStrike?.()}
                             class:active={tipex?.isActive?.('strike')}
                             title="Strikethrough"
-                        >
-                            <iconify-icon icon="fa6-solid:strikethrough"></iconify-icon>
+							aria-label="Strikethrough"
+						>
+							<iconify-icon icon="fa6-solid:strikethrough"></iconify-icon>
                         </button>
                     </div>
                     
@@ -280,8 +293,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleBlockquote?.()}
                             class:active={tipex?.isActive?.('blockquote')}
                             title="Quote"
-                        >
-                            <iconify-icon icon="fa6-solid:quote-left"></iconify-icon>
+							aria-label="Quote"
+						>
+							<iconify-icon icon="fa6-solid:quote-left"></iconify-icon>
                         </button>
                     </div>
                     
@@ -292,8 +306,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleBulletList?.()}
                             class:active={tipex?.isActive?.('bulletList')}
                             title="Bullet List"
-                        >
-                            <iconify-icon icon="fa6-solid:list-ul"></iconify-icon>
+							aria-label="Bullet List"
+						>
+							<iconify-icon icon="fa6-solid:list-ul"></iconify-icon>
                         </button>
                         
                         <button 
@@ -301,8 +316,9 @@
                             onclick={() => (tipex as any)?.commands?.toggleOrderedList?.()}
                             class:active={tipex?.isActive?.('orderedList')}
                             title="Numbered List"
-                        >
-                            <iconify-icon icon="fa6-solid:list-ol"></iconify-icon>
+							aria-label="Numbered List"
+						>
+							<iconify-icon icon="fa6-solid:list-ol"></iconify-icon>
                         </button>
                     </div>
                 </div>
@@ -316,7 +332,7 @@
             <div class="shortcuts-modal" onclick={(e) => e.stopPropagation()}>
                 <div class="shortcuts-header">
                     <h3>Keyboard Shortcuts</h3>
-                    <button class="close-btn" onclick={() => showShortcuts = false}>
+                    <button class="close-btn" onclick={() => showShortcuts = false} aria-label="Close">
                         <iconify-icon icon="fa6-solid:xmark"></iconify-icon>
                     </button>
                 </div>
