@@ -47,7 +47,6 @@
         <Tipex 
             bind:tipex={editor}
             {body} 
-            controls 
             floating 
             focal
             class="minimal-dark-editor"
