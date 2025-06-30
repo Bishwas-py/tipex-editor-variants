@@ -190,7 +190,7 @@
                         TypeScript
                     </span>
                     <span class="tech-tag">
-                        <iconify-icon icon="simple-icons:prosemirror"></iconify-icon>
+                        <iconify-icon icon="file-icons:owl"></iconify-icon>
                         ProseMirror
                     </span>
                 </div>

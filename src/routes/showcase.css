@@ -306,7 +306,7 @@
   }
   
   .tech-tag {
-    @apply flex items-center space-x-2 px-3 py-2 
+    @apply flex items-center gap-2 px-3 py-2 
            bg-[var(--color-showcase-surface-elevated)] 
            text-[var(--color-showcase-text-muted)]
            rounded-[var(--radius-md)] border border-[var(--color-showcase-border)]
@@ -314,7 +314,7 @@
   }
   
   .tech-tag iconify-icon {
-    @apply w-4 h-4;
+    @apply h-4 text-base;
   }
   
   .footer-links {
@@ -322,13 +322,13 @@
   }
   
   .footer-link {
-    @apply flex items-center space-x-2 text-[var(--color-showcase-text-muted)]
+    @apply flex items-center gap-3 text-[var(--color-showcase-text-muted)]
            hover:text-[var(--color-showcase-primary)] transition-colors
            decoration-0;
   }
   
   .footer-link iconify-icon {
-    @apply w-4 h-4;
+    @apply h-4;
   }
   
   /* Animations */
