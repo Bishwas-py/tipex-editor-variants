@@ -57,7 +57,7 @@
   
   /* Header Styles */
   .showcase-header {
-    @apply relative overflow-hidden py-16 px-6;
+    @apply relative overflow-hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-6;
     background: var(--gradient-primary);
   }
   
@@ -70,23 +70,24 @@
   }
   
   .header-content {
-    @apply relative max-w-6xl flex md:flex-row flex-col gap-12 text-center items-center;
+    @apply relative max-w-6xl mx-auto text-center;
   }
   
   .main-title {
-    @apply text-3xl md:text-5xl font-bold mb-6 leading-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight;
   }
   
   .title-gradient {
-    @apply bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent whitespace-nowrap;
+    @apply bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent;
+    display: block;
   }
   
   .title-variants {
-    @apply block text-blue-100 opacity-90 text-xl md:text-2xl font-light;
+    @apply block text-blue-100 opacity-90 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mt-2;
   }
   
   .main-description {
-    @apply text-xl md:text-2xl text-blue-100 opacity-90 w-full shrink-0 text-left;
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 opacity-90 max-w-4xl mx-auto leading-relaxed;
   }
   
   /* Variants Grid */
@@ -344,21 +345,17 @@
   /* Responsive Design */
   @media (max-width: 1024px) {
     .variants-grid {
-      @apply grid-cols-1 md:grid-cols-2 gap-6;
+      @apply grid-cols-1 lg:grid-cols-2 gap-6;
     }
   }
   
   @media (max-width: 768px) {
     .showcase-header {
-      @apply py-12 px-4;
+      @apply py-10 px-4;
     }
     
-    .main-title {
-      @apply text-3xl md:text-4xl;
-    }
-    
-    .title-variants {
-      @apply text-2xl md:text-3xl;
+    .main-description {
+      @apply text-sm sm:text-base;
     }
 
     .variants-grid {
@@ -379,6 +376,24 @@
     
     .footer-links {
       @apply items-start;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .showcase-header {
+      @apply py-8 px-3;
+    }
+    
+    .main-title {
+      @apply text-xl sm:text-2xl;
+    }
+    
+    .title-variants {
+      @apply text-base sm:text-lg;
+    }
+    
+    .main-description {
+      @apply text-sm leading-relaxed;
     }
   }
 } 
