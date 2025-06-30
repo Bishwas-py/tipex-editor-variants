@@ -70,23 +70,23 @@
   }
   
   .header-content {
-    @apply relative max-w-4xl mx-auto text-center;
+    @apply relative max-w-6xl flex md:flex-row flex-col gap-12 text-center items-center;
   }
   
   .main-title {
-    @apply text-5xl md:text-7xl font-bold mb-6 leading-tight;
+    @apply text-3xl md:text-5xl font-bold mb-6 leading-tight;
   }
   
   .title-gradient {
-    @apply bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent whitespace-nowrap;
   }
   
   .title-variants {
-    @apply block text-blue-100 opacity-90 text-4xl md:text-5xl font-light;
+    @apply block text-blue-100 opacity-90 text-xl md:text-2xl font-light;
   }
   
   .main-description {
-    @apply text-xl md:text-2xl text-blue-100 opacity-90 max-w-3xl mx-auto leading-relaxed;
+    @apply text-xl md:text-2xl text-blue-100 opacity-90 w-full shrink-0 text-left;
   }
   
   /* Variants Grid */
@@ -360,11 +360,7 @@
     .title-variants {
       @apply text-2xl md:text-3xl;
     }
-    
-    .main-description {
-      @apply text-lg;
-    }
-    
+
     .variants-grid {
       @apply grid-cols-1 px-4 py-12 gap-6;
     }
