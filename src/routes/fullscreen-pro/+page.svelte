@@ -219,18 +219,17 @@
         <Tipex 
             bind:tipex={editor}
             {body} 
-            controls
             floating 
             focal
             class="fullscreen-pro-editor"
         >
-            {#snippet utilities(tipex)}
+            {#snippet controlComponent(tipex)}
                 <div class="pro-utilities">
                     <div class="utility-section">
                         <span class="section-label">Format</span>
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleBold?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleBold?.()}
                             class:active={tipex?.isActive?.('bold')}
                             title="Bold (Ctrl+B)"
                         >
@@ -239,7 +238,7 @@
                         
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleItalic?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleItalic?.()}
                             class:active={tipex?.isActive?.('italic')}
                             title="Italic (Ctrl+I)"
                         >
@@ -248,7 +247,7 @@
                         
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleStrike?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleStrike?.()}
                             class:active={tipex?.isActive?.('strike')}
                             title="Strikethrough"
                         >
@@ -260,7 +259,7 @@
                         <span class="section-label">Structure</span>
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleHeading?.({ level: 1 })}
+                            onclick={() => (tipex as any)?.commands?.toggleHeading?.({ level: 1 })}
                             class:active={tipex?.isActive?.('heading', { level: 1 })}
                             title="Heading 1"
                         >
@@ -269,7 +268,7 @@
                         
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleHeading?.({ level: 2 })}
+                            onclick={() => (tipex as any)?.commands?.toggleHeading?.({ level: 2 })}
                             class:active={tipex?.isActive?.('heading', { level: 2 })}
                             title="Heading 2"
                         >
@@ -278,7 +277,7 @@
                         
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleBlockquote?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleBlockquote?.()}
                             class:active={tipex?.isActive?.('blockquote')}
                             title="Quote"
                         >
@@ -290,7 +289,7 @@
                         <span class="section-label">Lists</span>
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleBulletList?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleBulletList?.()}
                             class:active={tipex?.isActive?.('bulletList')}
                             title="Bullet List"
                         >
@@ -299,7 +298,7 @@
                         
                         <button 
                             class="pro-utility-btn"
-                            onclick={() => tipex?.commands?.toggleOrderedList?.()}
+                            onclick={() => (tipex as any)?.commands?.toggleOrderedList?.()}
                             class:active={tipex?.isActive?.('orderedList')}
                             title="Numbered List"
                         >
