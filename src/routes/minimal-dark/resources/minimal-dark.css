@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@theme {
+  /* Minimal Dark Theme Variables */
+  --color-minimal-bg: #0a0a0a;
+  --color-minimal-surface: #111111;
+  --color-minimal-surface-hover: #1a1a1a;
+  --color-minimal-border: #222222;
+  --color-minimal-text: #e5e5e5;
+  --color-minimal-text-muted: #a3a3a3;
+  --color-minimal-accent: #3b82f6;
+  --color-minimal-accent-hover: #2563eb;
+  --color-minimal-success: #10b981;
+  
+  /* Minimal spacing */
+  --spacing-minimal-xs: 0.25rem;
+  --spacing-minimal-sm: 0.5rem;
+  --spacing-minimal-md: 1rem;
+  --spacing-minimal-lg: 1.5rem;
+  --spacing-minimal-xl: 2rem;
+  
+  /* Minimal typography */
+  --font-minimal-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --text-minimal-sm: 0.875rem;
+  --text-minimal-base: 1rem;
+  --text-minimal-lg: 1.125rem;
+  --text-minimal-xl: 1.25rem;
+  --text-minimal-2xl: 1.5rem;
+  
+  /* Minimal radius */
+  --radius-minimal-sm: 0.25rem;
+  --radius-minimal-md: 0.375rem;
+  --radius-minimal-lg: 0.5rem;
+  
+  /* Minimal shadows */
+  --shadow-minimal-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-minimal-md: 0 4px 6px -1px rgb(0 0 0 / 0.7);
+  --shadow-minimal-focus: 0 0 0 2px rgb(59 130 246 / 0.5);
+}
+
+@layer components {
+  .minimal-dark-container {
+    @apply min-h-screen flex flex-col;
+    background: var(--color-minimal-bg);
+    color: var(--color-minimal-text);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  .minimal-header {
+    @apply border-b;
+    background: var(--color-minimal-surface);
+    border-color: var(--color-minimal-border);
+    backdrop-filter: blur(10px);
+  }
+  
+  .header-content {
+    @apply flex items-center justify-between px-6 py-4 max-w-7xl mx-auto;
+  }
+  
+  .editor-title {
+    @apply text-xl font-semibold;
+    color: var(--color-minimal-text);
+    margin: 0;
+  }
+  
+  .header-actions {
+    @apply flex items-center gap-3;
+  }
+  
+  .save-btn {
+    @apply flex items-center gap-2 px-4 py-2 rounded-md font-medium transition-all duration-200;
+    background: var(--color-minimal-accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover {
+    background: var(--color-minimal-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-minimal-md);
+  }
+  
+  .back-btn {
+    @apply flex items-center gap-2 px-4 py-2 rounded-md font-medium transition-all duration-200 no-underline;
+    background: var(--color-minimal-surface-hover);
+    color: var(--color-minimal-text);
+    border: 1px solid var(--color-minimal-border);
+  }
+  
+  .back-btn:hover {
+    background: var(--color-minimal-border);
+    transform: translateY(-1px);
+  }
+  
+  .editor-main {
+    @apply flex-1 p-6;
+    background: var(--color-minimal-bg);
+  }
+  
+  .minimal-dark-editor {
+    @apply max-w-4xl mx-auto h-full;
+    background: var(--color-minimal-surface);
+    border: 1px solid var(--color-minimal-border);
+    border-radius: var(--radius-minimal-lg);
+    box-shadow: var(--shadow-minimal-md);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section {
+    background: var(--color-minimal-surface);
+    color: var(--color-minimal-text);
+    border: none;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror {
+    @apply px-8 py-6;
+    color: var(--color-minimal-text);
+    line-height: 1.7;
+    font-size: var(--text-minimal-lg);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror h1 {
+    @apply text-3xl font-bold mb-6 mt-8;
+    color: var(--color-minimal-text);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror h2 {
+    @apply text-2xl font-semibold mb-4 mt-6;
+    color: var(--color-minimal-text);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror h3 {
+    @apply text-xl font-medium mb-3 mt-5;
+    color: var(--color-minimal-text);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror p {
+    @apply mb-4;
+    color: var(--color-minimal-text);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror blockquote {
+    @apply border-l-4 pl-4 my-6 italic;
+    border-color: var(--color-minimal-accent);
+    color: var(--color-minimal-text-muted);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror ul,
+  .minimal-dark-editor .tipex-editor-section .ProseMirror ol {
+    @apply mb-4 pl-6;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror li {
+    @apply mb-2;
+    color: var(--color-minimal-text);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror code {
+    @apply px-2 py-1 rounded text-sm;
+    background: var(--color-minimal-border);
+    color: var(--color-minimal-accent);
+    font-family: var(--font-minimal-mono);
+  }
+  
+  .minimal-dark-editor .tipex-editor-section .ProseMirror pre {
+    @apply p-4 rounded-lg mb-4 overflow-x-auto;
+    background: var(--color-minimal-border);
+    color: var(--color-minimal-text);
+    font-family: var(--font-minimal-mono);
+  }
+  
+  .minimal-dark-editor .tipex-control-section {
+    background: var(--color-minimal-surface);
+    border-top: 1px solid var(--color-minimal-border);
+  }
+  
+  .minimal-dark-editor .tipex-edit-button {
+    @apply transition-all duration-200;
+    background: transparent;
+    color: var(--color-minimal-text-muted);
+    border: 1px solid transparent;
+  }
+  
+  .minimal-dark-editor .tipex-edit-button:hover {
+    background: var(--color-minimal-surface-hover);
+    color: var(--color-minimal-text);
+    border-color: var(--color-minimal-border);
+  }
+  
+  .minimal-dark-editor .tipex-edit-button.active {
+    background: var(--color-minimal-accent);
+    color: white;
+    border-color: var(--color-minimal-accent);
+  }
+  
+  .utility-btn {
+    @apply p-2 rounded-md transition-all duration-200 border;
+    background: transparent;
+    color: var(--color-minimal-text-muted);
+    border-color: var(--color-minimal-border);
+    cursor: pointer;
+  }
+  
+  .utility-btn:hover {
+    background: var(--color-minimal-surface-hover);
+    color: var(--color-minimal-text);
+    border-color: var(--color-minimal-accent);
+  }
+  
+  .utility-btn.active {
+    background: var(--color-minimal-accent);
+    color: white;
+    border-color: var(--color-minimal-accent);
+  }
+  
+  .minimal-footer {
+    @apply text-center py-4 border-t;
+    background: var(--color-minimal-surface);
+    border-color: var(--color-minimal-border);
+    color: var(--color-minimal-text-muted);
+    font-size: var(--text-minimal-sm);
+  }
+  
+  /* Custom scrollbar for minimal theme */
+  .minimal-dark-editor .tipex-editor-section {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-minimal-border) transparent;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section::-webkit-scrollbar-thumb {
+    background-color: var(--color-minimal-border);
+    border-radius: 3px;
+  }
+  
+  .minimal-dark-editor .tipex-editor-section::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-minimal-accent);
+  }
+  
+  /* Focus states */
+  .minimal-dark-editor.focused.focal {
+    border-color: var(--color-minimal-accent);
+    box-shadow: var(--shadow-minimal-focus);
+  }
+  
+  /* Floating controls styling */
+  .minimal-dark-editor .tipex-float-control {
+    background: var(--color-minimal-surface);
+    border: 1px solid var(--color-minimal-border);
+    border-radius: var(--radius-minimal-md);
+    box-shadow: var(--shadow-minimal-md);
+  }
+} 

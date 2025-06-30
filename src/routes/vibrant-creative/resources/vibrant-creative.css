@@ -1,0 +1,481 @@
+@import "tailwindcss";
+
+@theme {
+  /* Vibrant Creative Theme Variables */
+  --color-vibrant-primary: #ff6b6b;
+  --color-vibrant-secondary: #4ecdc4;
+  --color-vibrant-accent: #45b7d1;
+  --color-vibrant-warning: #f9ca24;
+  --color-vibrant-success: #6c5ce7;
+  --color-vibrant-purple: #a55eea;
+  --color-vibrant-orange: #fd79a8;
+  --color-vibrant-pink: #fdcb6e;
+  
+  /* Background colors */
+  --color-vibrant-bg: #f8f9fa;
+  --color-vibrant-surface: #ffffff;
+  --color-vibrant-surface-hover: #f1f3f4;
+  --color-vibrant-border: #e1e5e9;
+  --color-vibrant-text: #2c3e50;
+  --color-vibrant-text-muted: #6c757d;
+  
+  /* Gradients */
+  --gradient-vibrant-primary: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  --gradient-vibrant-secondary: linear-gradient(135deg, #45b7d1 0%, #6c5ce7 100%);
+  --gradient-vibrant-accent: linear-gradient(135deg, #a55eea 0%, #fd79a8 100%);
+  --gradient-vibrant-warm: linear-gradient(135deg, #f9ca24 0%, #fdcb6e 100%);
+  --gradient-vibrant-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Vibrant spacing */
+  --spacing-vibrant-xs: 0.25rem;
+  --spacing-vibrant-sm: 0.5rem;
+  --spacing-vibrant-md: 1rem;
+  --spacing-vibrant-lg: 1.5rem;
+  --spacing-vibrant-xl: 2rem;
+  --spacing-vibrant-2xl: 3rem;
+  
+  /* Vibrant typography */
+  --font-vibrant-display: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-vibrant-body: 'Inter', system-ui, sans-serif;
+  --text-vibrant-xs: 0.75rem;
+  --text-vibrant-sm: 0.875rem;
+  --text-vibrant-base: 1rem;
+  --text-vibrant-lg: 1.125rem;
+  --text-vibrant-xl: 1.25rem;
+  --text-vibrant-2xl: 1.5rem;
+  --text-vibrant-3xl: 1.875rem;
+  
+  /* Vibrant radius */
+  --radius-vibrant-sm: 0.375rem;
+  --radius-vibrant-md: 0.5rem;
+  --radius-vibrant-lg: 0.75rem;
+  --radius-vibrant-xl: 1rem;
+  --radius-vibrant-full: 9999px;
+  
+  /* Vibrant shadows */
+  --shadow-vibrant-sm: 0 2px 4px 0 rgb(0 0 0 / 0.1);
+  --shadow-vibrant-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  --shadow-vibrant-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+  --shadow-vibrant-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  --shadow-vibrant-colored: 0 10px 25px 0 rgb(255 107 107 / 0.3);
+}
+
+@layer components {
+  .vibrant-creative-container {
+    @apply min-h-screen flex flex-col relative;
+    background: var(--color-vibrant-bg);
+    color: var(--color-vibrant-text);
+    font-family: var(--font-vibrant-body);
+    overflow-x: hidden;
+  }
+  
+  .gradient-bg {
+    @apply fixed inset-0 pointer-events-none opacity-10;
+    background: var(--gradient-vibrant-bg);
+    z-index: -1;
+  }
+  
+  .vibrant-header {
+    @apply relative z-10 backdrop-blur-sm border-b;
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--color-vibrant-border);
+    box-shadow: var(--shadow-vibrant-sm);
+  }
+  
+  .header-content {
+    @apply flex items-center justify-between px-6 py-4 max-w-7xl mx-auto;
+  }
+  
+  .title-section {
+    @apply flex items-center gap-4;
+  }
+  
+  .editor-title {
+    @apply text-2xl font-bold flex items-center gap-2;
+    background: var(--gradient-vibrant-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-family: var(--font-vibrant-display);
+  }
+  
+  .title-icon {
+    @apply text-3xl;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.1));
+  }
+  
+  .word-counter {
+    @apply flex items-center gap-2 px-3 py-1 rounded-full;
+    background: var(--gradient-vibrant-secondary);
+    color: white;
+    font-size: var(--text-vibrant-sm);
+    font-weight: 600;
+    box-shadow: var(--shadow-vibrant-sm);
+  }
+  
+  .counter-value {
+    @apply font-bold;
+  }
+  
+  .header-actions {
+    @apply flex items-center gap-3;
+  }
+  
+  .export-btn {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300;
+    background: var(--gradient-vibrant-accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-vibrant-md);
+    transform: translateY(0);
+  }
+  
+  .export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-vibrant-lg);
+  }
+  
+  .back-btn {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 no-underline;
+    background: var(--color-vibrant-surface);
+    color: var(--color-vibrant-text);
+    border: 2px solid var(--color-vibrant-border);
+    box-shadow: var(--shadow-vibrant-sm);
+  }
+  
+  .back-btn:hover {
+    border-color: var(--color-vibrant-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-vibrant-md);
+  }
+  
+  .editor-main {
+    @apply flex-1 p-6 relative z-10;
+  }
+  
+  .emoji-palette {
+    @apply flex items-center justify-center gap-2 mb-6 p-4 rounded-xl;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-vibrant-border);
+    box-shadow: var(--shadow-vibrant-md);
+  }
+  
+  .emoji-btn {
+    @apply w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 border-2;
+    background: var(--color-vibrant-surface);
+    border-color: transparent;
+    cursor: pointer;
+  }
+  
+  .emoji-btn:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: var(--shadow-vibrant-lg);
+    border-color: var(--color-vibrant-accent);
+  }
+  
+  .vibrant-creative-editor {
+    @apply max-w-5xl mx-auto rounded-xl overflow-hidden;
+    box-shadow: var(--shadow-vibrant-xl);
+    border: 3px solid transparent;
+    background: var(--color-vibrant-surface);
+    position: relative;
+  }
+  
+  .vibrant-creative-editor::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl pointer-events-none;
+    background: var(--gradient-vibrant-primary);
+    z-index: -1;
+    padding: 3px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section {
+    background: var(--color-vibrant-surface);
+    border: none;
+    min-height: 500px;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror {
+    @apply px-8 py-6;
+    color: var(--color-vibrant-text);
+    line-height: 1.8;
+    font-size: var(--text-vibrant-lg);
+    font-family: var(--font-vibrant-body);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror h1 {
+    @apply text-4xl font-bold mb-6 mt-8;
+    background: var(--gradient-vibrant-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror h2 {
+    @apply text-3xl font-semibold mb-5 mt-7;
+    background: var(--gradient-vibrant-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror h3 {
+    @apply text-2xl font-medium mb-4 mt-6;
+    background: var(--gradient-vibrant-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror p {
+    @apply mb-5;
+    color: var(--color-vibrant-text);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror strong {
+    @apply font-bold;
+    color: var(--color-vibrant-primary);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror em {
+    @apply italic;
+    color: var(--color-vibrant-purple);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror blockquote {
+    @apply border-l-4 pl-6 py-4 my-6 rounded-r-lg;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+    border-color: var(--color-vibrant-primary);
+    color: var(--color-vibrant-text);
+    font-style: italic;
+    position: relative;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror blockquote::before {
+    content: '"';
+    @apply absolute text-6xl opacity-20;
+    color: var(--color-vibrant-primary);
+    top: -10px;
+    left: 10px;
+    font-family: Georgia, serif;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror ul,
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror ol {
+    @apply mb-5 pl-6;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror li {
+    @apply mb-2 relative;
+    color: var(--color-vibrant-text);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror ul li::marker {
+    color: var(--color-vibrant-accent);
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror ol li::marker {
+    color: var(--color-vibrant-secondary);
+    font-weight: bold;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror code {
+    @apply px-2 py-1 rounded text-sm;
+    background: var(--gradient-vibrant-warm);
+    color: var(--color-vibrant-text);
+    font-weight: 600;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section .ProseMirror pre {
+    @apply p-6 rounded-xl mb-6 overflow-x-auto;
+    background: var(--gradient-vibrant-bg);
+    color: white;
+    box-shadow: var(--shadow-vibrant-lg);
+  }
+  
+  .vibrant-creative-editor .tipex-control-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-vibrant-border);
+  }
+  
+  .vibrant-creative-editor .tipex-edit-button {
+    @apply transition-all duration-300;
+    background: transparent;
+    color: var(--color-vibrant-text-muted);
+    border: 2px solid transparent;
+    border-radius: var(--radius-vibrant-md);
+  }
+  
+  .vibrant-creative-editor .tipex-edit-button:hover {
+    background: var(--color-vibrant-surface-hover);
+    color: var(--color-vibrant-text);
+    border-color: var(--color-vibrant-accent);
+    transform: translateY(-1px);
+  }
+  
+  .vibrant-creative-editor .tipex-edit-button.active {
+    background: var(--gradient-vibrant-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-vibrant-colored);
+  }
+  
+  .utility-group {
+    @apply flex items-center gap-2 p-2 rounded-lg;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--color-vibrant-border);
+    box-shadow: var(--shadow-vibrant-sm);
+  }
+  
+  .utility-btn {
+    @apply px-3 py-2 rounded-md font-semibold transition-all duration-300 border-2;
+    background: var(--color-vibrant-surface);
+    color: var(--color-vibrant-text-muted);
+    border-color: transparent;
+    cursor: pointer;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .utility-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-vibrant-md);
+  }
+  
+  .format-btn:hover {
+    background: var(--gradient-vibrant-primary);
+    color: white;
+    border-color: transparent;
+  }
+  
+  .format-btn.active {
+    background: var(--gradient-vibrant-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-vibrant-colored);
+  }
+  
+  .heading-btn:hover {
+    background: var(--gradient-vibrant-secondary);
+    color: white;
+    border-color: transparent;
+  }
+  
+  .heading-btn.active {
+    background: var(--gradient-vibrant-secondary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-vibrant-lg);
+  }
+  
+  .list-btn:hover {
+    background: var(--gradient-vibrant-accent);
+    color: white;
+    border-color: transparent;
+  }
+  
+  .list-btn.active {
+    background: var(--gradient-vibrant-accent);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-vibrant-lg);
+  }
+  
+  .vibrant-footer {
+    @apply relative z-10 border-t;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-color: var(--color-vibrant-border);
+  }
+  
+  .footer-content {
+    @apply text-center py-6 px-6 max-w-7xl mx-auto;
+  }
+  
+  .footer-content p {
+    @apply text-lg font-semibold mb-2;
+    background: var(--gradient-vibrant-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .theme-credits {
+    @apply flex items-center justify-center gap-2 text-sm;
+    color: var(--color-vibrant-text-muted);
+  }
+  
+  .heart {
+    @apply text-lg;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  /* Custom scrollbar for vibrant theme */
+  .vibrant-creative-editor .tipex-editor-section {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-vibrant-accent) transparent;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section::-webkit-scrollbar-thumb {
+    background: var(--gradient-vibrant-primary);
+    border-radius: 4px;
+  }
+  
+  .vibrant-creative-editor .tipex-editor-section::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-vibrant-secondary);
+  }
+  
+  /* Focus states */
+  .vibrant-creative-editor.focused.focal {
+    box-shadow: var(--shadow-vibrant-xl), 0 0 0 4px rgba(255, 107, 107, 0.3);
+  }
+  
+  /* Floating controls styling */
+  .vibrant-creative-editor .tipex-float-control {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-vibrant-border);
+    border-radius: var(--radius-vibrant-lg);
+    box-shadow: var(--shadow-vibrant-lg);
+  }
+  
+  /* Animations */
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .emoji-btn {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .emoji-btn:nth-child(2) { animation-delay: 0.2s; }
+  .emoji-btn:nth-child(3) { animation-delay: 0.4s; }
+  .emoji-btn:nth-child(4) { animation-delay: 0.6s; }
+  .emoji-btn:nth-child(5) { animation-delay: 0.8s; }
+  .emoji-btn:nth-child(6) { animation-delay: 1s; }
+  .emoji-btn:nth-child(7) { animation-delay: 1.2s; }
+  .emoji-btn:nth-child(8) { animation-delay: 1.4s; }
+} 

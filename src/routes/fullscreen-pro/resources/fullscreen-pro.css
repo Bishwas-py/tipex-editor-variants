@@ -1,0 +1,399 @@
+@import "tailwindcss";
+
+@theme {
+  /* Professional Color Palette */
+  --color-pro-bg: #0f0f0f;
+  --color-pro-surface: #1a1a1a;
+  --color-pro-surface-elevated: #262626;
+  --color-pro-border: #333333;
+  --color-pro-text: #f5f5f5;
+  --color-pro-text-muted: #a3a3a3;
+  --color-pro-text-subtle: #737373;
+  --color-pro-primary: #3b82f6;
+  --color-pro-primary-hover: #2563eb;
+  --color-pro-success: #10b981;
+  --color-pro-warning: #f59e0b;
+  --color-pro-error: #ef4444;
+  
+  /* Professional Spacing */
+  --spacing-pro-xs: 0.25rem;
+  --spacing-pro-sm: 0.5rem;
+  --spacing-pro-md: 1rem;
+  --spacing-pro-lg: 1.5rem;
+  --spacing-pro-xl: 2rem;
+  
+  /* Professional Typography */
+  --font-pro-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-pro-sans: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+  --font-pro-serif: 'Crimson Text', 'Georgia', serif;
+  
+  /* Professional Radius */
+  --radius-pro-sm: 0.25rem;
+  --radius-pro-md: 0.375rem;
+  --radius-pro-lg: 0.5rem;
+  
+  /* Professional Shadows */
+  --shadow-pro-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-pro-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-pro-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-pro-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
+}
+
+@layer components {
+  .fullscreen-pro-container {
+    @apply fixed inset-0 bg-[var(--color-pro-bg)] text-[var(--color-pro-text)] 
+           font-[var(--font-pro-sans)] antialiased overflow-hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .fullscreen-pro-container.fullscreen {
+    @apply z-50;
+  }
+  
+  .fullscreen-pro-container.focus-mode {
+    @apply bg-[var(--color-pro-bg)];
+  }
+  
+  /* Status Bar */
+  .status-bar {
+    @apply flex items-center justify-between px-6 py-3 
+           bg-[var(--color-pro-surface)] border-b border-[var(--color-pro-border)]
+           backdrop-blur-sm;
+    height: 60px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .status-bar.hidden {
+    @apply opacity-0 -translate-y-full pointer-events-none;
+  }
+  
+  .status-left {
+    @apply flex items-center space-x-6;
+  }
+  
+  .document-stats {
+    @apply flex items-center space-x-4;
+  }
+  
+  .stat-item {
+    @apply flex items-center space-x-2 text-sm text-[var(--color-pro-text-muted)]
+           px-3 py-1 rounded-[var(--radius-pro-md)] bg-[var(--color-pro-surface-elevated)];
+  }
+  
+  .stat-item iconify-icon {
+    @apply w-4 h-4;
+  }
+  
+  .status-center {
+    @apply flex-1 text-center;
+  }
+  
+  .document-title {
+    @apply text-lg font-semibold text-[var(--color-pro-text)] m-0;
+  }
+  
+  .status-right {
+    @apply flex items-center space-x-4;
+  }
+  
+  .save-status {
+    @apply flex items-center space-x-2 text-sm text-[var(--color-pro-text-muted)];
+  }
+  
+  .save-icon {
+    @apply w-4 h-4 text-[var(--color-pro-success)];
+  }
+  
+  .action-buttons {
+    @apply flex items-center space-x-2;
+  }
+  
+  .action-btn {
+    @apply flex items-center justify-center w-9 h-9 
+           bg-[var(--color-pro-surface-elevated)] hover:bg-[var(--color-pro-primary)]
+           text-[var(--color-pro-text-muted)] hover:text-white
+           rounded-[var(--radius-pro-md)] border border-[var(--color-pro-border)]
+           transition-all duration-200 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-[var(--color-pro-primary)];
+  }
+  
+  .action-btn:hover {
+    @apply shadow-[var(--shadow-pro-md)] scale-105;
+  }
+  
+  .action-btn iconify-icon {
+    @apply w-4 h-4;
+  }
+  
+  .home-btn {
+    @apply decoration-0;
+  }
+  
+  /* Editor Area */
+  .editor-area {
+    @apply flex-1 overflow-hidden;
+    height: calc(100vh - 60px);
+  }
+  
+  .fullscreen-pro-container.focus-mode .editor-area {
+    @apply h-screen;
+  }
+  
+  .fullscreen-pro-editor {
+    @apply h-full w-full bg-transparent;
+  }
+  
+  /* Professional Utilities */
+  .pro-utilities {
+    @apply flex items-center space-x-6 px-4 py-2 
+           bg-[var(--color-pro-surface)] border border-[var(--color-pro-border)]
+           rounded-[var(--radius-pro-lg)] shadow-[var(--shadow-pro-md)]
+           backdrop-blur-sm;
+  }
+  
+  .utility-section {
+    @apply flex items-center space-x-2;
+  }
+  
+  .section-label {
+    @apply text-xs font-medium text-[var(--color-pro-text-subtle)] 
+           uppercase tracking-wide mr-2;
+  }
+  
+  .pro-utility-btn {
+    @apply flex items-center justify-center w-8 h-8 
+           bg-transparent hover:bg-[var(--color-pro-surface-elevated)]
+           text-[var(--color-pro-text-muted)] hover:text-[var(--color-pro-text)]
+           rounded-[var(--radius-pro-sm)] border border-transparent
+           transition-all duration-150 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-[var(--color-pro-primary)]
+           text-sm font-medium;
+  }
+  
+  .pro-utility-btn:hover {
+    @apply shadow-[var(--shadow-pro-sm)] border-[var(--color-pro-border)];
+  }
+  
+  .pro-utility-btn.active {
+    @apply bg-[var(--color-pro-primary)] text-white border-[var(--color-pro-primary)]
+           shadow-[var(--shadow-pro-sm)];
+  }
+  
+  .pro-utility-btn iconify-icon {
+    @apply w-4 h-4;
+  }
+  
+  /* Keyboard Shortcuts Modal */
+  .shortcuts-overlay {
+    @apply fixed inset-0 bg-black/75 flex items-center justify-center z-50
+           backdrop-blur-sm;
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .shortcuts-modal {
+    @apply bg-[var(--color-pro-surface)] border border-[var(--color-pro-border)]
+           rounded-[var(--radius-pro-lg)] shadow-[var(--shadow-pro-xl)]
+           w-full max-w-2xl max-h-[80vh] overflow-hidden;
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .shortcuts-header {
+    @apply flex items-center justify-between px-6 py-4 
+           border-b border-[var(--color-pro-border)];
+  }
+  
+  .shortcuts-header h3 {
+    @apply text-lg font-semibold text-[var(--color-pro-text)] m-0;
+  }
+  
+  .close-btn {
+    @apply flex items-center justify-center w-8 h-8 
+           bg-transparent hover:bg-[var(--color-pro-surface-elevated)]
+           text-[var(--color-pro-text-muted)] hover:text-[var(--color-pro-text)]
+           rounded-[var(--radius-pro-sm)] transition-colors duration-150
+           focus:outline-none focus:ring-2 focus:ring-[var(--color-pro-primary)];
+  }
+  
+  .close-btn iconify-icon {
+    @apply w-4 h-4;
+  }
+  
+  .shortcuts-content {
+    @apply p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 
+           max-h-96 overflow-y-auto;
+  }
+  
+  .shortcut-group h4 {
+    @apply text-sm font-semibold text-[var(--color-pro-text)] 
+           uppercase tracking-wide mb-3 m-0;
+  }
+  
+  .shortcut-item {
+    @apply flex items-center justify-between py-2;
+  }
+  
+  .shortcut-keys {
+    @apply text-xs font-mono text-[var(--color-pro-text)] 
+           bg-[var(--color-pro-surface-elevated)] px-2 py-1 
+           rounded-[var(--radius-pro-sm)] border border-[var(--color-pro-border)];
+  }
+  
+  .shortcut-desc {
+    @apply text-sm text-[var(--color-pro-text-muted)] flex-1 text-right;
+  }
+  
+  /* Custom Scrollbar */
+  .shortcuts-content::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  .shortcuts-content::-webkit-scrollbar-track {
+    @apply bg-[var(--color-pro-surface)];
+  }
+  
+  .shortcuts-content::-webkit-scrollbar-thumb {
+    @apply bg-[var(--color-pro-border)] rounded-full;
+  }
+  
+  .shortcuts-content::-webkit-scrollbar-thumb:hover {
+    @apply bg-[var(--color-pro-text-subtle)];
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px) scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+  
+  /* Tipex Editor Customizations */
+  .fullscreen-pro-editor :global(.ProseMirror) {
+    @apply bg-transparent text-[var(--color-pro-text)] 
+           font-[var(--font-pro-serif)] text-lg leading-relaxed
+           px-8 py-6 min-h-full
+           focus:outline-none;
+    line-height: 1.8;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror h1) {
+    @apply text-3xl font-bold text-[var(--color-pro-text)] 
+           mb-6 mt-8 first:mt-0;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror h2) {
+    @apply text-2xl font-semibold text-[var(--color-pro-text)] 
+           mb-4 mt-6;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror h3) {
+    @apply text-xl font-medium text-[var(--color-pro-text)] 
+           mb-3 mt-5;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror p) {
+    @apply text-[var(--color-pro-text)] mb-4 leading-relaxed;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror blockquote) {
+    @apply border-l-4 border-[var(--color-pro-primary)] 
+           pl-6 ml-0 my-6 text-[var(--color-pro-text-muted)] 
+           italic font-medium;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror code) {
+    @apply bg-[var(--color-pro-surface-elevated)] text-[var(--color-pro-primary)]
+           px-2 py-1 rounded-[var(--radius-pro-sm)] font-mono text-sm;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror ul),
+  .fullscreen-pro-editor :global(.ProseMirror ol) {
+    @apply ml-6 mb-4;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror li) {
+    @apply text-[var(--color-pro-text)] mb-2;
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror strong) {
+    @apply font-semibold text-[var(--color-pro-text)];
+  }
+  
+  .fullscreen-pro-editor :global(.ProseMirror em) {
+    @apply italic text-[var(--color-pro-text-muted)];
+  }
+  
+  /* Focus Mode Enhancements */
+  .focus-mode .pro-utilities {
+    @apply opacity-30 hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  .focus-mode .fullscreen-pro-editor :global(.ProseMirror) {
+    @apply px-16 py-12 max-w-4xl mx-auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .status-bar {
+      @apply px-4 py-2;
+      height: 50px;
+    }
+    
+    .editor-area {
+      height: calc(100vh - 50px);
+    }
+    
+    .document-stats {
+      @apply space-x-2;
+    }
+    
+    .stat-item {
+      @apply px-2 text-xs;
+    }
+    
+    .action-buttons {
+      @apply space-x-1;
+    }
+    
+    .action-btn {
+      @apply w-8 h-8;
+    }
+    
+    .pro-utilities {
+      @apply px-2 space-x-3;
+    }
+    
+    .utility-section {
+      @apply space-x-1;
+    }
+    
+    .section-label {
+      @apply hidden;
+    }
+    
+    .shortcuts-modal {
+      @apply m-4;
+    }
+    
+    .shortcuts-content {
+      @apply grid-cols-1 gap-4;
+    }
+    
+    .fullscreen-pro-editor :global(.ProseMirror) {
+      @apply px-4 py-4;
+    }
+    
+    .focus-mode .fullscreen-pro-editor :global(.ProseMirror) {
+      @apply px-6 py-8;
+    }
+  }
+} 
