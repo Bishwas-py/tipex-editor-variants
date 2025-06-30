@@ -1,38 +1,13 @@
-# sv
+This repo shows what you can do with [tipex svelte text editor](https://github.com/friendofsvelte/tipex)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Minimal Dark Editor
+![Minimal Dark Svelte Text Editor](https://github.com/user-attachments/assets/b3d5bba4-b507-4c02-9248-9224909943a0)
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🎨 Vibrant Creative Editor
+![Vibrant Creative Editor](https://github.com/user-attachments/assets/8e5ef504-890f-4db9-b641-8249f89b270a)
+![Vibrant Creative Editor](https://github.com/user-attachments/assets/e0e5fc72-e857-43e5-aae6-3a8bf2a2ac2c)
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Full-Screen Professional Editor
+![Full-Screen Professional Editor](https://github.com/user-attachments/assets/b9d32dfd-9872-4874-93ed-c9d7a30370ef)
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
