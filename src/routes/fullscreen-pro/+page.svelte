@@ -208,7 +208,7 @@
                 </button>
                 
                 <a href="/" class="action-btn home-btn" title="Home">
-                    <iconify-icon icon="fa6-solid:home"></iconify-icon>
+                    <iconify-icon icon="fa-solid:home"></iconify-icon>
                 </a>
             </div>
         </div>
